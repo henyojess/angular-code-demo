@@ -22,34 +22,7 @@
 <body>
 <div class="container">
 
-    <div class="jumbotron" ng-controller="DemoController">
-        <input type="search" class="form-control" placeholder="List Filter" ng-model="filterText"/>
-        <p>
-            {{ remaining() }} of {{ tasks.length }} task(s) remaining
-            <button class="btn btn-success btn-xs" ng-click="clearCompleted()">Clear Completed</button>
-        </p>
-        <table class="table table-condensed">
-            <thead>
-            <tr>
-                <td><span class="glyphicon glyphicon-ok"></span></td>
-                <td>Description</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="task in tasks | filter:filterText">
-                <td><input type="checkbox" ng-model="task.completed"/></td>
-                <td class="{{ task.completed ? 'completed':'incomplete' }}">
-                    {{ task.description }}
-                    <a ng-click="deleteTask(task)">
-                        <span class="glyphicon glyphicon-trash pull-right"></span>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <form class="form-horizontal" ng-submit="addTask()">
-            <input type="text" class="form-control" placeholder="New Task" ng-model="task.description"/>
-        </form>
+    <div class="jumbotron" ng-view>
     </div>
 
 </div><!-- /container -->

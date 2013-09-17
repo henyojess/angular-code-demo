@@ -40,7 +40,7 @@ demoApp.factory('Tasks',function(){
     };
 });
 
-function DemoController($scope,Tasks) {
+function ListController($scope,Tasks) {
     $scope.tasks = Tasks.list()
     $scope.addTask = function(){
         var newTask = $scope.task;
