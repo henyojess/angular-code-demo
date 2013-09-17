@@ -5,38 +5,56 @@ demoApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/list'});
 }]);
 
-function DemoController($scope){
-    $scope.tasks = [
+demoApp.factory('Tasks',function(){
+    var tasks = [
         {description: 'first entry',completed:false},
         {description: 'another entry',completed:false},
         {description: 'some other entry',completed:false},
         {description: 'last entry',completed:false}
     ];
+    return {
+        list:function(){
+            return tasks;
+        },
+        add:function(task){
+            tasks.push(task);
+        },
+        delete:function(task){
+            tasks.splice(tasks.indexOf(task),1);
+        },
+        remaining:function(){
+            var counter = 0;
+            angular.forEach(tasks,function(task){
+                if(!task.completed) counter ++;
+            });
+            return counter;
+        },
+        clearCompleted:function(){
+            var oldTasks = tasks;
+            tasks = [];
+            angular.forEach(oldTasks,function(task){
+                if(!task.completed) tasks.push(task);
+            });
+            return tasks;
+        }
+    };
+});
 
+function DemoController($scope,Tasks) {
+    $scope.tasks = Tasks.list()
     $scope.addTask = function(){
         var newTask = $scope.task;
         newTask.completed = false;
-        $scope.tasks.push(newTask);
+        Tasks.add(newTask);
         $scope.task = {};
     }
-
     $scope.remaining = function(){
-        var counter = 0;
-        angular.forEach($scope.tasks,function(task){
-            if(!task.completed) counter ++;
-        });
-        return counter;
+        return Tasks.remaining();
     }
-
     $scope.clearCompleted = function(){
-        var oldTasks = $scope.tasks;
-        $scope.tasks = [];
-        angular.forEach(oldTasks,function(task){
-            if(!task.completed) $scope.tasks.push(task);
-        });
+        $scope.tasks = Tasks.clearCompleted();
     }
-
     $scope.deleteTask = function(task){
-        $scope.tasks.splice($scope.tasks.indexOf(task),1);
+        Tasks.delete(task)
     }
 }
