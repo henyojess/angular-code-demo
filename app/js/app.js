@@ -5,4 +5,11 @@ function DemoController($scope){
         {description: 'some other entry',completed:false},
         {description: 'last entry',completed:false}
     ];
+
+    $scope.addTask = function(){
+        var newTask = $scope.task;
+        newTask.completed = false;
+        $scope.tasks.push(newTask);
+        $scope.task = {};
+    }
 }
