@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,8 +24,10 @@
 
     <div class="jumbotron">
         <h1>Welcome to GDG DevFest 2013</h1>
+        <p ng-init=" name='World' ">Hello {{ name }}!</p>
     </div>
 
 </div><!-- /container -->
+<script src="lib/angular-1.2.0-rc.2/angular.js"></script>
 </body>
 </html>
