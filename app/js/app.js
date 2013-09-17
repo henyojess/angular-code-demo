@@ -1,3 +1,10 @@
+var demoApp = angular.module('demoApp',['ngRoute']);
+demoApp.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/list', {templateUrl: 'list.html', controller: 'ListController'});
+    $routeProvider.when('/create', {templateUrl: 'form.html', controller: 'CreateController'});
+    $routeProvider.otherwise({redirectTo: '/list'});
+}]);
+
 function DemoController($scope){
     $scope.tasks = [
         {description: 'first entry',completed:false},
