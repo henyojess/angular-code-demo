@@ -20,4 +20,12 @@ function DemoController($scope){
         });
         return counter;
     }
+
+    $scope.clearCompleted = function(){
+        var oldTasks = $scope.tasks;
+        $scope.tasks = [];
+        angular.forEach(oldTasks,function(task){
+            if(!task.completed) $scope.tasks.push(task);
+        });
+    }
 }
