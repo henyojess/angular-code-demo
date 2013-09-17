@@ -28,4 +28,8 @@ function DemoController($scope){
             if(!task.completed) $scope.tasks.push(task);
         });
     }
+
+    $scope.deleteTask = function(task){
+        $scope.tasks.splice($scope.tasks.indexOf(task),1);
+    }
 }

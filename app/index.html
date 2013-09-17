@@ -38,7 +38,12 @@
             <tbody>
             <tr ng-repeat="task in tasks | filter:filterText">
                 <td><input type="checkbox" ng-model="task.completed"/></td>
-                <td class="{{ task.completed ? 'completed':'incomplete' }}">{{ task.description }}</td>
+                <td class="{{ task.completed ? 'completed':'incomplete' }}">
+                    {{ task.description }}
+                    <a ng-click="deleteTask(task)">
+                        <span class="glyphicon glyphicon-trash pull-right"></span>
+                    </a>
+                </td>
             </tr>
             </tbody>
         </table>
