@@ -23,6 +23,7 @@
 <div class="container">
 
     <div class="jumbotron" ng-controller="DemoController">
+        <input type="search" class="form-control" placeholder="List Filter" ng-model="filterText"/>
         <p>{{ remaining() }} of {{ tasks.length }} task(s) remaining</p>
         <table class="table table-condensed">
             <thead>
@@ -32,7 +33,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="task in tasks">
+            <tr ng-repeat="task in tasks | filter:filterText">
                 <td><input type="checkbox" ng-model="task.completed"/></td>
                 <td class="{{ task.completed ? 'completed':'incomplete' }}">{{ task.description }}</td>
             </tr>
