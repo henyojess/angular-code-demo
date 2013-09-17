@@ -23,9 +23,20 @@
 <div class="container">
 
     <div class="jumbotron" ng-controller="DemoController">
-        <h1>Welcome to GDG DevFest 2013</h1>
-        <p>Hello {{ name }}!</p>
-        <input type="text" ng-model="name"/>
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <td>Description</td>
+                <td>Completed</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in tasks">
+                    <td>{{ task.description }}</td>
+                    <td>{{ task.completed }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 </div><!-- /container -->
