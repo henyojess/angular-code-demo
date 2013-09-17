@@ -22,13 +22,14 @@
 <body>
 <div class="container">
 
-    <div class="jumbotron">
+    <div class="jumbotron" ng-controller="DemoController">
         <h1>Welcome to GDG DevFest 2013</h1>
-        <p ng-init=" name='World' ">Hello {{ name }}!</p>
+        <p>Hello {{ name }}!</p>
         <input type="text" ng-model="name"/>
     </div>
 
 </div><!-- /container -->
 <script src="lib/angular-1.2.0-rc.2/angular.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
