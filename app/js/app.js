@@ -12,4 +12,12 @@ function DemoController($scope){
         $scope.tasks.push(newTask);
         $scope.task = {};
     }
+
+    $scope.remaining = function(){
+        var counter = 0;
+        angular.forEach($scope.tasks,function(task){
+            if(!task.completed) counter ++;
+        });
+        return counter;
+    }
 }

@@ -23,18 +23,19 @@
 <div class="container">
 
     <div class="jumbotron" ng-controller="DemoController">
+        <p>{{ remaining() }} of {{ tasks.length }} task(s) remaining</p>
         <table class="table table-condensed">
             <thead>
             <tr>
+                <td><span class="glyphicon glyphicon-ok"></span></td>
                 <td>Description</td>
-                <td>Completed</td>
             </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="task in tasks">
-                    <td>{{ task.description }}</td>
-                    <td>{{ task.completed }}</td>
-                </tr>
+            <tr ng-repeat="task in tasks">
+                <td><input type="checkbox" ng-model="task.completed"/></td>
+                <td class="{{ task.completed ? 'completed':'incomplete' }}">{{ task.description }}</td>
+            </tr>
             </tbody>
         </table>
         <form class="form-horizontal" ng-submit="addTask()">

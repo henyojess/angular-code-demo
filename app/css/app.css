@@ -28,3 +28,5 @@ body {
         border-bottom: 0;
     }
 }
+
+td.completed { text-decoration: line-through; color: #808080 }
