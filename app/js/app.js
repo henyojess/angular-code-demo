@@ -40,14 +40,8 @@ demoApp.factory('Tasks',function(){
     };
 });
 
-function ListController($scope,Tasks) {
+demoApp.controller('ListController',function($scope,Tasks){
     $scope.tasks = Tasks.list()
-    $scope.addTask = function(){
-        var newTask = $scope.task;
-        newTask.completed = false;
-        Tasks.add(newTask);
-        $scope.task = {};
-    }
     $scope.remaining = function(){
         return Tasks.remaining();
     }
@@ -57,4 +51,15 @@ function ListController($scope,Tasks) {
     $scope.deleteTask = function(task){
         Tasks.delete(task)
     }
-}
+});
+
+demoApp.controller('CreateController',function($scope,$location,Tasks){
+    $scope.addTask = function(){
+        console.log('adding new task');
+        var newTask = $scope.task;
+        newTask.completed = false;
+        Tasks.add(newTask);
+        $scope.task = {};
+        $location.path('/');
+    }
+});
