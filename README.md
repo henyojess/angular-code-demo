@@ -1,5 +1,9 @@
-
 #### GDG DevFestPH 2013: AngularJS Code Demo ####
+
+[Follow AngularJS-PH on G+](https://plus.google.com/109819287119854011538)
+
+
+[Join AngularJS-PH G+Community](https://plus.google.com/communities/116126275877059161802)
 
 --------------------------------------------------------------------------------
 #### Getting the Code
@@ -7,9 +11,9 @@
   git clone git@github.com:henyojess/angular-code-demo.git
 
 #### Running the Code
-  Assuming node.js is installed:
-  cd angular-code-demo
-  node scripts/web-server.js
+  Assuming node.js is installed:  
+  cd angular-code-demo  
+  node scripts/web-server.js  
 
 #### Stepping through the evolution of the code:
 
